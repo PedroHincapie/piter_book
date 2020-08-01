@@ -73,7 +73,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         Positioned(
-                          child: SvgPicture.asset(''),
+                          right: 0,
+                          child: SvgPicture.asset(
+                            'assets/svg/background_search.svg',
+                          ),
                         ),
                       ],
                     ),
