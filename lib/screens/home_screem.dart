@@ -18,12 +18,26 @@ class _HomeScreenState extends State<HomeScreen> {
                 left: 25.0,
                 top: 25.0,
               ),
-              child: Text(
-                'Hi, Rizki',
-                style: GoogleFonts.openSans(
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.w600,
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'Hi, Rizki',
+                    style: GoogleFonts.openSans(
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xFFAAAAAA),
+                    ),
+                  ),
+                  Text(
+                    'Discover Latest Book',
+                    style: GoogleFonts.openSans(
+                      fontSize: 22.0,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xFF121212),
+                    ),
+                  ),
+                ],
               ),
             )
           ],
