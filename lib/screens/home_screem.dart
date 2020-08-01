@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -42,7 +43,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     margin: EdgeInsets.only(
                       top: 18.0,
                       right: 20.0,
-                      left:
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
@@ -71,6 +71,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
+                        ),
+                        Positioned(
+                          child: SvgPicture.asset(''),
                         ),
                       ],
                     ),
