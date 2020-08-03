@@ -26,13 +26,55 @@ class _HomeScreenState extends State<HomeScreen> {
     AssetImage('assets/images/book_2.png'),
   ];
 
-  final List<AssetImage> populares = [
-    AssetImage('assets/images/popular_1.png'),
-    AssetImage('assets/images/popular_2.png'),
-    AssetImage('assets/images/popular_1.png'),
-    AssetImage('assets/images/popular_2.png'),
-    AssetImage('assets/images/popular_1.png'),
-    AssetImage('assets/images/popular_2.png'),
+  final List<Map<String, String>> populares = [
+    {
+      'imagen': 'assets/images/popular_1.png',
+      'titulo': 'You\'re A Miracle1',
+      'autor': 'Mike McHargue',
+      'costo': '\$20',
+    },
+    {
+      'imagen': 'assets/images/popular_2.png',
+      'titulo': 'Pattern Maker',
+      'autor': 'Kerry Johnston',
+      'costo': '\$40',
+    },
+    {
+      'imagen': 'assets/images/popular_1.png',
+      'titulo': 'You\'re A Miracle1',
+      'autor': 'Mike McHargue',
+      'costo': '\$20',
+    },
+    {
+      'imagen': 'assets/images/popular_2.png',
+      'titulo': 'Pattern Maker',
+      'autor': 'Kerry Johnston',
+      'costo': '\$40',
+    },
+    {
+      'imagen': 'assets/images/popular_1.png',
+      'titulo': 'You\'re A Miracle1',
+      'autor': 'Mike McHargue',
+      'costo': '\$20',
+    },
+    {
+      'imagen': 'assets/images/popular_2.png',
+      'titulo': 'Pattern Maker',
+      'autor': 'Kerry Johnston',
+      'costo': '\$40',
+    },
+    {
+      'imagen': 'assets/images/popular_1.png',
+      'titulo': 'You\'re A Miracle1',
+      'autor': 'Mike McHargue',
+      'costo': '\$20',
+    },
+    {
+      'imagen': 'assets/images/popular_2.png',
+      'titulo': 'Pattern Maker',
+      'autor': 'Kerry Johnston',
+      'costo': '\$40',
+    },
   ];
 
   @override
@@ -55,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: GoogleFonts.openSans(
                       fontSize: 14.0,
                       fontWeight: FontWeight.w600,
-                      color: Color(0xFFAAAAAA),
+                      color: buildColorMain(),
                     ),
                   ),
                   Text(
@@ -82,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           maxLengthEnforced: true,
                           style: GoogleFonts.openSans(
                             fontSize: 12.0,
-                            color: Color(0xFFAAAAAA),
+                            color: buildColorMain(),
                             fontWeight: FontWeight.w600,
                           ),
                           decoration: InputDecoration(
@@ -95,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             hintText: 'Search book',
                             hintStyle: GoogleFonts.openSans(
                               fontSize: 12.0,
-                              color: Color(0xFFAAAAAA),
+                              color: buildColorMain(),
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -127,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         indicatorPadding: EdgeInsets.all(0.0),
                         isScrollable: true,
                         labelColor: Color(0xFF121212),
-                        unselectedLabelColor: Color(0xFFAAAAAA),
+                        unselectedLabelColor: buildColorMain(),
                         labelStyle: GoogleFonts.openSans(
                           fontSize: 14.0,
                           fontWeight: FontWeight.w700,
@@ -218,11 +260,22 @@ class _HomeScreenState extends State<HomeScreen> {
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5.0),
                                   image: DecorationImage(
-                                    image: populares[index],
+                                    image:
+                                        AssetImage(populares[index]['imagen']),
                                   ),
-                                  color: Color(0xFFAAAAAA),
+                                  color: buildColorMain(),
                                 ),
                               ),
+                              SizedBox(
+                                width: 21.0,
+                              ),
+                              Column(
+                                children: <Widget>[
+                                  Text(populares[index]['titulo']),
+                                  Text(populares[index]['autor']),
+                                  Text(populares[index]['costo']),
+                                ],
+                              )
                             ],
                           ),
                         );
@@ -235,4 +288,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+  Color buildColorMain() => Color(0xFFAAAAAA);
 }
