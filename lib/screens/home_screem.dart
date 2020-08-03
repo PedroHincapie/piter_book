@@ -248,35 +248,65 @@ class _HomeScreenState extends State<HomeScreen> {
                       shrinkWrap: true,
                       itemCount: populares.length,
                       itemBuilder: (context, index) {
-                        return Container(
-                          margin: EdgeInsets.only(bottom: 19.0),
-                          height: 81.0,
-                          width: MediaQuery.of(context).size.width - 50,
-                          child: Row(
-                            children: <Widget>[
-                              Container(
-                                height: 81.0,
-                                width: 62.0,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5.0),
-                                  image: DecorationImage(
-                                    image:
-                                        AssetImage(populares[index]['imagen']),
+                        return GestureDetector(
+                          onTap: () {
+                            print('oeeeee');
+                          },
+                          child: Container(
+                            margin: EdgeInsets.only(bottom: 19.0),
+                            height: 81.0,
+                            width: MediaQuery.of(context).size.width - 50,
+                            child: Row(
+                              children: <Widget>[
+                                Container(
+                                  height: 81.0,
+                                  width: 62.0,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5.0),
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                          populares[index]['imagen']),
+                                    ),
+                                    color: buildColorMain(),
                                   ),
-                                  color: buildColorMain(),
                                 ),
-                              ),
-                              SizedBox(
-                                width: 21.0,
-                              ),
-                              Column(
-                                children: <Widget>[
-                                  Text(populares[index]['titulo']),
-                                  Text(populares[index]['autor']),
-                                  Text(populares[index]['costo']),
-                                ],
-                              )
-                            ],
+                                SizedBox(
+                                  width: 21.0,
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      populares[index]['titulo'],
+                                      style: GoogleFonts.openSans(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 16.0,
+                                        color: Color(0xFF121212),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 5.0,
+                                    ),
+                                    Text(populares[index]['autor'],
+                                        style: GoogleFonts.openSans(
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 10.0,
+                                          color: Color(0xFFAAAAAA),
+                                        )),
+                                    SizedBox(
+                                      height: 5.0,
+                                    ),
+                                    Text(populares[index]['costo'],
+                                        style: GoogleFonts.openSans(
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 14.0,
+                                          color: Color(0xFF121212),
+                                        )),
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
                         );
                       })
