@@ -9,11 +9,38 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final List<AssetImage> listaBook = [
+    AssetImage('assets/images/book_1.png'),
+    AssetImage('assets/images/book_2.png'),
+    AssetImage('assets/images/book_1.png'),
+    AssetImage('assets/images/book_2.png'),
+    AssetImage('assets/images/book_1.png'),
+    AssetImage('assets/images/book_2.png'),
+    AssetImage('assets/images/book_1.png'),
+    AssetImage('assets/images/book_2.png'),
+    AssetImage('assets/images/book_2.png'),
+    AssetImage('assets/images/book_1.png'),
+    AssetImage('assets/images/book_2.png'),
+    AssetImage('assets/images/book_2.png'),
+    AssetImage('assets/images/book_1.png'),
+    AssetImage('assets/images/book_2.png'),
+  ];
+
+  final List<AssetImage> populares = [
+    AssetImage('assets/images/popular_1.png'),
+    AssetImage('assets/images/popular_2.png'),
+    AssetImage('assets/images/popular_1.png'),
+    AssetImage('assets/images/popular_2.png'),
+    AssetImage('assets/images/popular_1.png'),
+    AssetImage('assets/images/popular_2.png'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         child: ListView(
+          physics: BouncingScrollPhysics(),
           children: <Widget>[
             Padding(
               padding: EdgeInsets.only(
@@ -140,22 +167,66 @@ class _HomeScreenState extends State<HomeScreen> {
                   Container(
                     margin: EdgeInsets.only(top: 21),
                     height: 210.0,
-                    color: Colors.red,
                     child: ListView.builder(
                         padding: EdgeInsets.only(left: 25.0, right: 6.0),
-                        itemCount: 2,
+                        itemCount: listaBook.length,
+                        physics: BouncingScrollPhysics(),
+                        scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
                           return Container(
-                            margin: EdgeInsets.only(right: 10.0),
                             height: 210.0,
                             width: 153.0,
+                            margin: EdgeInsets.only(
+                              right: 19.0,
+                            ),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10.0),
+                                color: Color(0xFFE5E5E5),
                                 image: DecorationImage(
-                                  image: AssetImage('assets/images/book_1.png'),)),
+                                  image: listaBook[index],
+                                )),
                           );
                         }),
                   ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 25.0, top: 25.0),
+                    child: Text(
+                      'Popular',
+                      style: GoogleFonts.openSans(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF121212),
+                      ),
+                    ),
+                  ),
+                  ListView.builder(
+                      padding:
+                          EdgeInsets.only(top: 25.0, right: 25.0, left: 25.0),
+                      physics: BouncingScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: populares.length,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          margin: EdgeInsets.only(bottom: 19.0),
+                          height: 81.0,
+                          width: MediaQuery.of(context).size.width - 50,
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                height: 81.0,
+                                width: 62.0,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                  image: DecorationImage(
+                                    image: populares[index],
+                                  ),
+                                  color: Color(0xFFAAAAAA),
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      })
                 ],
               ),
             )
